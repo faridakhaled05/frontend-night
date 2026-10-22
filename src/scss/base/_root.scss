@@ -12,9 +12,15 @@
         --color-#{$name} : #{$value};
     }
      @include type-tokens($type-mobile);
+  --section-padding: var(--space-3xl);   
+  --grid-gap: var(--space-md);           
+  --gutter: var(--space-lg);             
+  --container-max: 1200px;
 
   @media (min-width: $bp-tablet) {
+    --section-padding: var(--space-5xl); 
+    --grid-gap: var(--space-lg);         
     @include type-tokens($type-desktop);
   }
-   
+
 };
