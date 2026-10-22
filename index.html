@@ -3,16 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontend Night</title>
+    <title>Frontend Night · CSS that scales</title>
+    <meta
+      name="description"
+      content="Frontend Night #12: an evening of practical talks on semantic HTML, modern layout and SCSS architecture. Free entry, Cairo."
+    />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@500;600&display=swap"
-/>
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@500;600&display=swap"
+    />
   </head>
   <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="logo" href="./">
+          <span class="logo__mark" aria-hidden="true">&lt;/&gt;</span>
+          <span class="logo__text">frontend night</span>
+        </a>
+
+        <button
+          class="site-header__menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 8h16M4 16h16" />
+          </svg>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="site-nav__list" role="list">
+            <li><a class="site-nav__link" href="#agenda">Agenda</a></li>
+            <li><a class="site-nav__link" href="#speakers">Speakers</a></li>
+            <li><a class="site-nav__link" href="#faq">FAQ</a></li>
+          </ul>
+          <a class="button button--primary button--sm" href="#register">Register</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- chunks 2–6 go here -->
+    </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

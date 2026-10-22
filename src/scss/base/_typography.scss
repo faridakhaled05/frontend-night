@@ -1,17 +1,21 @@
 @use '../abstracts' as *;
 
 body {
-  font-family: $font-body;
+  font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
   font-weight: 400;
-  color: var(--color-text-soft);   // slate: body text
-  background: var(--color-white);
+  color: var(--color-navy);
+  background: var(--color-navy-deep);
   -webkit-font-smoothing: antialiased;
 }
 
+p {
+  color: var(--color-text-soft);
+}
+
 h1, h2, h3 {
-  font-family: $font-heading;
+  font-family: var(--font-heading);
   color: var(--color-navy);
   text-wrap: balance;              // evens out line lengths on short headings
 }
