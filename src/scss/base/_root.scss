@@ -11,5 +11,10 @@
     @each $name, $value in $colors {
         --color-#{$name} : #{$value};
     }
+     @include type-tokens($type-mobile);
+
+  @media (min-width: $bp-tablet) {
+    @include type-tokens($type-desktop);
+  }
    
 };
