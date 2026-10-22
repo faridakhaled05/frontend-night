@@ -1,10 +1,8 @@
 $radii: (
-  'sm': 8px,      // inputs, select
-  'md': 12px,     // speaker photos
-  'lg': 16px,     // speaker cards
-  'xl': 24px,     // ticket & register cards
-  'pill': 999px,  // buttons, tags, radio pills
+  'sm': 0.5rem,   // 8
+  'md': 0.75rem,  // 12
+  'lg': 1rem,     // 16
+  'xl': 1.5rem,   // 24
+  'pill': 999rem, // any huge value = fully rounded ends
 );
-
-// The two white cards on navy only. Tinted with navy-deep, not black.
-$shadow-card: 0 24px 48px -16px rgba(11, 19, 48, 0.35);
+$shadow-card: 0 1.5rem 3rem -1rem rgba(11, 19, 48, 0.35); // 0 24 48 -16
