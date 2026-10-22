@@ -14,7 +14,9 @@
      @include type-tokens($type-mobile);
   --section-padding: var(--space-3xl);   
   --grid-gap: var(--space-md);           
-  --gutter: var(--space-lg);             
+  --gutter: var(--space-lg); 
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};   
   --container-max: 1200px;
 
   @media (min-width: $bp-tablet) {
