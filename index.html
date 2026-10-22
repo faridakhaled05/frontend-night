@@ -49,7 +49,7 @@
     </header>
 
     <main>
-     <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__inner">
     <div class="hero__content">
       <p class="tag tag--outline">Meetup #12 · Free entry</p>
@@ -84,6 +84,80 @@
         <div class="facts__item">
           <svg class="facts__icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
           <div>
+            <dt class="facts__label">Venue</dt>
+            <dd class="facts__value">[Venue name], Cairo</dd>
+          </div>
+        </div>
+        <div class="facts__item">
+          <svg class="facts__icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4V6z"/></svg>
+          <div>
+            <dt class="facts__label">Entry</dt>
+            <dd class="facts__value">Free · limited seats</dd>
+          </div>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
+<section class="section section--white" id="agenda" aria-labelledby="agenda-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">Agenda</p>
+      <h2 class="section-head__title" id="agenda-title">One evening, three talks.</h2>
+    </header>
+
+    <ol class="agenda" role="list">
+      <li class="agenda__item">
+        <time class="agenda__time" datetime="18:30">6:30 PM</time>
+        <div class="agenda__body">
+          <h3 class="agenda__title">Doors open &amp; networking</h3>
+          <p class="agenda__desc">Coffee, snacks and name badges at the entrance.</p>
+        </div>
+        <span class="tag tag--muted agenda__tag">30 min</span>
+      </li>
+      <li class="agenda__item">
+        <time class="agenda__time" datetime="19:00">7:00 PM</time>
+        <div class="agenda__body">
+          <h3 class="agenda__title">Semantic HTML that screen readers love</h3>
+          <p class="agenda__desc">Salma Adel · Landmarks, headings and forms that work without ARIA patches.</p>
+        </div>
+        <span class="tag tag--accent agenda__tag">Talk · 35 min</span>
+      </li>
+      <li class="agenda__item">
+        <time class="agenda__time" datetime="19:40">7:40 PM</time>
+        <div class="agenda__body">
+          <h3 class="agenda__title">Modern layout with Grid &amp; container queries</h3>
+          <p class="agenda__desc">Omar Fathy · Fewer media queries, more components that size themselves.</p>
+        </div>
+        <span class="tag tag--accent agenda__tag">Talk · 35 min</span>
+      </li>
+      <li class="agenda__item">
+        <time class="agenda__time" datetime="20:15">8:15 PM</time>
+        <div class="agenda__body">
+          <h3 class="agenda__title">Break</h3>
+          <p class="agenda__desc">Stretch, refill, ask the first two speakers your questions.</p>
+        </div>
+        <span class="tag tag--muted agenda__tag">15 min</span>
+      </li>
+      <li class="agenda__item">
+        <time class="agenda__time" datetime="20:30">8:30 PM</time>
+        <div class="agenda__body">
+          <h3 class="agenda__title">Structuring SCSS for a team</h3>
+          <p class="agenda__desc">Nour Hassan · The 7-1 pattern, tokens as maps and mixins worth keeping.</p>
+        </div>
+        <span class="tag tag--accent agenda__tag">Talk · 35 min</span>
+      </li>
+      <li class="agenda__item">
+        <time class="agenda__time" datetime="21:05">9:05 PM</time>
+        <div class="agenda__body">
+          <h3 class="agenda__title">Open Q&amp;A and wrap-up</h3>
+          <p class="agenda__desc">All speakers on stage, hosted by Karim Mostafa.</p>
+        </div>
+        <span class="tag tag--muted agenda__tag">25 min</span>
+      </li>
+    </ol>
+  </div>
+</section>    
     </main>
 
     <script type="module" src="/src/main.js"></script>
