@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+:root{
+    --shadow-card: #{$shadow-card};
+    @each $name, $value in $spaces {
+        --space-#{$name} : #{$value};
+    }
+    @each $name, $value in $radii {
+        --radius-#{$name} : #{$value};
+    }
+    @each $name, $value in $colors {
+        --color-#{$name} : #{$value};
+    }
+   
+};
