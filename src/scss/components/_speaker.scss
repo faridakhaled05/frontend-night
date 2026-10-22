@@ -1,0 +1,6 @@
+// Speaker card. Photo keeps a 1:1 box before it loads (replaces the old width/height attributes).
+.speaker__photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}

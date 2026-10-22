@@ -1,0 +1,11 @@
+// Shared base for every inline SVG icon. Size and colour come from CSS, never from HTML.
+.icon {
+  width: 1.25rem;   // 20px default; components override per use
+  height: 1.25rem;
+  flex: none;       // never squashed inside a flex row
+  fill: none;
+  stroke: currentColor; // takes the text colour of its parent
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
