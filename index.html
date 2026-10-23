@@ -8,6 +8,8 @@
       name="description"
       content="Frontend Night #12: an evening of practical talks on semantic HTML, modern layout and SCSS architecture. Free entry, Cairo."
     />
+    <!-- Runs before first paint so the mobile nav never flashes open while main.js loads -->
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -254,16 +256,14 @@
               <div class="field">
                 <label class="field__label" for="name">Full name</label>
                 <input class="field__input" id="name" name="name" type="text"
-                       autocomplete="name" placeholder="Your full name" required
-                       aria-describedby="name-error" />
+                       autocomplete="name" placeholder="Your full name" required />
                 <p class="field__error" id="name-error" hidden>Enter your full name.</p>
               </div>
 
               <div class="field">
                 <label class="field__label" for="email">Email</label>
                 <input class="field__input" id="email" name="email" type="email"
-                       autocomplete="email" placeholder="you@example.com" required
-                       aria-describedby="email-error" />
+                       autocomplete="email" placeholder="you@example.com" required />
                 <p class="field__error" id="email-error" hidden>Enter a valid email address.</p>
               </div>
 
@@ -306,7 +306,7 @@
                 Reserve my seat
               </button>
             </form>
-            <p class="register__success" role="status" hidden>Thanks! Your seat is reserved. We'll email your confirmation.</p>
+            <p class="register__success" role="status"></p>
           </div>
         </div>
       </section>

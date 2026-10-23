@@ -98,7 +98,7 @@ Why: a trimmed 7-1 pattern, so each file has one job and is easy to find.
   - `time datetime` for dates and times: machine-readable.
 - **`role="list"`** on styled lists restores the list semantics Safari drops when `list-style: none` is set.
 - **Focus:** a global `:focus-visible` ring, recoloured white on dark backgrounds.
-- **Form:** each input points to its error message with `aria-describedby`. JS sets `aria-invalid`, and the error styling keys off `aria-invalid="true"`, not a class.
+- **Form:** while a field is invalid, JS sets `aria-invalid="true"` and links its error with `aria-describedby`. The link is removed when the field is valid, because a linked description is read even when it's hidden. Error styling keys off `aria-invalid="true"`, not a class.
 - **Radios stay focusable:** the real input is invisible (`opacity: 0`) and laid over the pill, not `display: none`, so keyboard and screen reader access is kept.
 - **`alt=""` on speaker photos:** the name is right next to the image, so alt text would be read twice.
 - **Touch targets:** the menu button, small button and radio pills are at least 44px tall.
@@ -108,7 +108,7 @@ Why: a trimmed 7-1 pattern, so each file has one job and is easy to find.
 
 Principle: progressive enhancement. The page works without JS; JS adds the `html.js` class and behaviour on top.
 
-`src/main.js` adds `js` to `<html>` and starts the two modules below. CSS uses the class to turn the mobile nav into a hidden dropdown and to show the menu button. Without JS, the nav stays visible as a stacked list and the button is hidden.
+An inline script in `<head>` adds `js` to `<html>` before first paint, so the mobile nav doesn't flash open while `src/main.js` loads. `main.js` then starts the two modules below. CSS uses the class to turn the mobile nav into a hidden dropdown and to show the menu button. Without JS, the nav stays visible as a stacked list and the button is hidden.
 
 ### Mobile menu (`src/js/menu.js`)
 
@@ -121,11 +121,11 @@ Why JS: a toggle button with a correct `aria-expanded` state can't be built in C
 ### Form validation (`src/js/form.js`)
 
 - JS adds `novalidate` to the form. It isn't in the HTML, so without JS the browser's native validation still runs.
-- Checks `#name` and `#email` with the Constraint Validation API (`input.validity.valid`), so the rules come from `required` and `type="email"` in the HTML, with no regex.
-- Invalid field: `aria-invalid="true"`, and the error linked by `aria-describedby` is un-hidden. Valid field: `aria-invalid="false"`, and the error is hidden again.
+- Validates every `[required]` field, so the HTML decides what's checked. It uses the Constraint Validation API (`input.validity.valid`), so the rules come from `required` and `type="email"`, with no regex.
+- Invalid field: `aria-invalid="true"`, `aria-describedby` points to its `<id>-error` message, and the message is un-hidden. Valid field: `aria-invalid="false"`, `aria-describedby` is removed, and the message is hidden again.
 - On submit, focus moves to the first invalid field, so its error is read out.
 - Errors appear only on submit. After that, the field is re-checked on every `input`, so its error clears as soon as it's fixed.
-- A valid submit resets the form and shows `.register__success`, a `role="status"` message that screen readers announce.
+- `.register__success` is an empty `role="status"` region that's always in the page, because a live region has to exist before its text changes to be announced. Each submit clears it. A valid submit resets the form and fills in the message. While it's empty, CSS hides it visually but leaves it in the accessibility tree.
 
 Why JS: native error bubbles can't be styled or placed next to the field, and they disappear quickly.
 

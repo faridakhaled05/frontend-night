@@ -49,11 +49,23 @@
   grid-column: 1 / -1;
 }
 
-// Shown by JS after a valid submit; role="status" announces it.
+// role="status" live region: JS fills it after a valid submit.
 .register__success {
   padding: var(--space-md); // 16
   border-radius: var(--radius-sm);
   background: var(--color-surface);
   color: var(--color-navy);
   font-weight: 500;
+
+  // Empty: no visible box. Not display: none, which would drop the region from the
+  // accessibility tree, and a live region must exist before its text changes to be announced.
+  // position: absolute also takes it out of the card's flex gap.
+  &:empty {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
 }
