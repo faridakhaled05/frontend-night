@@ -48,3 +48,12 @@
 .form__full {
   grid-column: 1 / -1;
 }
+
+// Shown by JS after a valid submit; role="status" announces it.
+.register__success {
+  padding: var(--space-md); // 16
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-navy);
+  font-weight: 500;
+}

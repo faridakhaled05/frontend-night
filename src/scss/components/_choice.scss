@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // Radio pill: the whole label is the pill; the real radio sits invisibly on top of it.
 .choices {
   display: flex;
@@ -19,7 +21,7 @@
   color: var(--color-navy);
   cursor: pointer;
 
-  @media (min-width: 48em) {
+  @media (min-width: $bp-tablet) {
     padding-inline: 1.125rem; // 18
   }
 
