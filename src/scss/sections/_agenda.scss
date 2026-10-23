@@ -1,0 +1,82 @@
+@use '../abstracts' as *;
+
+// Agenda: list of timed sessions. Each row rearranges its time, body and tag per breakpoint.
+.agenda {
+  border-top: 1px solid var(--color-navy);
+}
+
+.agenda__item {
+  --agenda-pad: 1.25rem; // 20
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'time tag'
+    'body body';
+  row-gap: var(--space-sm); // 8
+  align-items: center;
+  padding-block: var(--agenda-pad);
+  border-bottom: 1px solid var(--color-line);
+
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: 8.75rem minmax(0, 1fr); // 140
+    grid-template-areas:
+      'time body'
+      'tag body';
+    column-gap: var(--space-lg); // 24
+    align-items: start;
+  }
+
+  @media (min-width: $bp-desktop) {
+    --agenda-pad: 1.75rem; // 28
+
+    grid-template-columns: 12.5rem minmax(0, 1fr) 10rem; // 200 / 160
+    grid-template-areas: 'time body tag';
+    align-items: center;
+  }
+}
+
+.agenda__time {
+  --agenda-time-fs: 0.9375rem; // 15
+  --agenda-time-lh: 1.25rem;   // 20
+
+  grid-area: time;
+  font-family: var(--font-heading);
+  font-size: var(--agenda-time-fs);
+  line-height: var(--agenda-time-lh);
+  font-weight: 500;
+  color: var(--color-navy);
+
+  @media (min-width: $bp-tablet) {
+    --agenda-time-fs: var(--fs-h3);
+    --agenda-time-lh: var(--lh-h3);
+  }
+}
+
+.agenda__body {
+  --agenda-body-gap: var(--space-sm); // 8
+
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  gap: var(--agenda-body-gap);
+
+  @media (min-width: $bp-desktop) {
+    --agenda-body-gap: var(--space-xs); // 4
+  }
+}
+
+.agenda__tag {
+  --agenda-tag-align: end;
+
+  grid-area: tag;
+  justify-self: var(--agenda-tag-align);
+
+  @media (min-width: $bp-tablet) {
+    --agenda-tag-align: start;
+  }
+
+  @media (min-width: $bp-desktop) {
+    --agenda-tag-align: end;
+  }
+}

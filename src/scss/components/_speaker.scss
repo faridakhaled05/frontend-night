@@ -1,6 +1,56 @@
+@use '../abstracts' as *;
+
 // Speaker card. Photo keeps a 1:1 box before it loads (replaces the old width/height attributes).
+.speaker {
+  --speaker-gap: 0.75rem; // 12
+  --speaker-pad: 0.75rem; // 12
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--speaker-gap);
+  height: 100%;
+  padding: var(--speaker-pad);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+
+  @media (min-width: $bp-tablet) {
+    --speaker-gap: var(--space-md); // 16
+    --speaker-pad: 1.25rem;         // 20
+  }
+}
+
 .speaker__photo {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.speaker__name {
+  --speaker-name-fs: 0.875rem; // 14
+  --speaker-name-lh: 1.25rem;  // 20
+
+  font-family: var(--font-heading);
+  font-size: var(--speaker-name-fs);
+  line-height: var(--speaker-name-lh);
+  font-weight: 500;
+
+  @media (min-width: $bp-tablet) {
+    --speaker-name-fs: 1.125rem; // 18
+    --speaker-name-lh: 1.625rem; // 26
+  }
+}
+
+// Spacing to the name comes from the card's gap only.
+.speaker__role {
+  --speaker-role-fs: 0.8125rem; // 13
+  --speaker-role-lh: 1.125rem;  // 18
+
+  font-size: var(--speaker-role-fs);
+  line-height: var(--speaker-role-lh);
+
+  @media (min-width: $bp-tablet) {
+    --speaker-role-fs: 0.9375rem; // 15
+    --speaker-role-lh: 1.25rem;   // 20
+  }
 }

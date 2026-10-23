@@ -1,0 +1,142 @@
+@use '../abstracts' as *;
+
+// Hero: intro text and actions, plus the "At a glance" facts card.
+.hero {
+  --hero-pad-top: 3rem;    // 48
+  --hero-pad-bottom: 4rem; // 64
+
+  padding-block: var(--hero-pad-top) var(--hero-pad-bottom);
+  background: var(--color-navy);
+  color: var(--color-white);
+
+  @media (min-width: $bp-tablet) {
+    --hero-pad-top: 7rem;    // 112
+    --hero-pad-bottom: 8rem; // 128
+  }
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; // 40
+
+  @media (min-width: $bp-desktop) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    align-items: center;
+  }
+}
+
+.hero__content {
+  --hero-content-gap: 1.25rem; // 20
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--hero-content-gap);
+
+  > .tag {
+    align-self: flex-start;
+  }
+
+  @media (min-width: $bp-tablet) {
+    --hero-content-gap: var(--space-lg); // 24
+  }
+
+  @media (min-width: $bp-desktop) {
+    grid-column: 1 / span 7;
+  }
+}
+
+.hero__title {
+  color: var(--color-white);
+}
+
+.hero__lede {
+  max-width: 35rem; // 560
+  color: var(--color-text-on-dark);
+}
+
+.hero__actions {
+  --hero-actions-gap: 0.75rem; // 12
+  --hero-button-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--hero-actions-gap);
+  padding-top: var(--space-sm); // 8
+
+  .button {
+    width: var(--hero-button-width);
+  }
+
+  @media (min-width: $bp-tablet) {
+    --hero-actions-gap: var(--space-md); // 16
+    --hero-button-width: auto;
+
+    flex-direction: row;
+  }
+}
+
+.hero__glance {
+  @media (min-width: $bp-desktop) {
+    grid-column: 9 / span 4;
+  }
+}
+
+// Fact list inside the glance card (a <dl>).
+.facts {
+  display: flex;
+  flex-direction: column;
+}
+
+.facts__item {
+  --facts-gap: 0.875rem; // 14
+  --facts-pad: 0.75rem;  // 12
+
+  display: flex;
+  gap: var(--facts-gap);
+  padding-block: var(--facts-pad);
+  border-top: 1px solid var(--color-line);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  @media (min-width: $bp-tablet) {
+    --facts-gap: var(--space-md); // 16
+    --facts-pad: 0.875rem;        // 14
+  }
+}
+
+.facts__icon {
+  --facts-icon-size: 1.25rem; // 20
+
+  width: var(--facts-icon-size);
+  height: var(--facts-icon-size);
+  color: var(--color-accent);
+
+  @media (min-width: $bp-tablet) {
+    --facts-icon-size: 1.375rem; // 22
+  }
+}
+
+.facts__label {
+  @include text-tag;
+  color: var(--color-text-soft);
+}
+
+.facts__value {
+  --facts-value-fs: 0.9375rem; // 15
+  --facts-value-lh: 1.375rem;  // 22
+
+  margin-top: var(--space-xs); // 4
+  font-size: var(--facts-value-fs);
+  line-height: var(--facts-value-lh);
+  font-weight: 500;
+
+  @media (min-width: $bp-tablet) {
+    --facts-value-fs: 1rem;    // 16
+    --facts-value-lh: 1.5rem;  // 24
+  }
+}

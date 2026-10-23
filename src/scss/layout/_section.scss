@@ -1,0 +1,17 @@
+// Page section wrapper: vertical rhythm plus background variants.
+.section {
+  padding-block: var(--section-padding);
+}
+
+.section--white {
+  background: var(--color-white);
+}
+
+.section--mist {
+  background: var(--color-surface);
+}
+
+.section--navy {
+  background: var(--color-navy);
+  color: var(--color-white);
+}

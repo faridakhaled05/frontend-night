@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.logo {
+  --logo-mark: 2rem;        // 32
+  --logo-mark-font: 0.75rem; // 12
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;            // 10
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;     // 15
+  line-height: 1.25rem;     // 20
+  font-weight: 600;
+  text-decoration: none;
+
+  @media (min-width: $bp-tablet) {
+    --logo-mark: 2.25rem;    // 36
+    --logo-mark-font: 0.875rem; // 14
+    gap: 0.75rem;            // 12
+    font-size: 1.125rem;     // 18
+    line-height: 1.5rem;     // 24
+  }
+}
+
+.logo__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--logo-mark);
+  height: var(--logo-mark);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-navy);
+  font-size: var(--logo-mark-font);
+}
+
+// Footer: same logo, smaller on desktop
+.logo--sm {
+  @media (min-width: $bp-tablet) {
+    --logo-mark: 2rem;
+    --logo-mark-font: 0.75rem;
+    font-size: 1rem;      // 16
+  }
+}

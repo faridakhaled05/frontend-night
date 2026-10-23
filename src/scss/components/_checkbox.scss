@@ -1,0 +1,17 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; // 12
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  color: var(--color-text-soft);
+  cursor: pointer;
+}
+
+.checkbox__input {
+  flex: none;
+  width: 1.25rem;  // 20
+  height: 1.25rem;
+  margin: 0;
+  accent-color: var(--color-navy); // native checkbox, recoloured
+}

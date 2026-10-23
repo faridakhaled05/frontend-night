@@ -1,0 +1,115 @@
+@use '../abstracts' as *;
+
+.site-header {
+  position: relative; // anchor for the mobile menu panel
+  background: var(--color-navy);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text-on-dark) 18%, transparent);
+  color: var(--color-white);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  min-height: 4rem; // 64
+
+  @media (min-width: $bp-tablet) {
+    min-height: 5.5rem; // 88
+  }
+}
+
+.site-header__menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;  // 44
+  height: 2.75rem;
+  padding: 0;
+  border: 1.5px solid color-mix(in srgb, var(--color-white) 60%, transparent);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-white);
+
+  &:focus-visible {
+    outline-color: var(--color-white);
+  }
+
+  html:not(.js) & {
+    display: none; // no JS = the button couldn't work, so hide it
+  }
+
+  @media (min-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+// Mobile: links stacked in a panel under the header
+.site-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+
+  .js & {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    display: none;
+    padding: var(--space-md) var(--gutter) var(--space-lg);
+    background: var(--color-navy);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text-on-dark) 18%, transparent);
+  }
+
+  // open: JS sets aria-expanded="true" on the button just before the nav
+  .js .site-header__menu-btn[aria-expanded='true'] + & {
+    display: flex;
+  }
+
+  // Tablet and up: inline row, links centred between logo and Register
+  @media (min-width: $bp-tablet) {
+    .js &,
+    & {
+      position: static;
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      background: none;
+      border: 0;
+    }
+  }
+}
+
+.site-nav__list {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $bp-tablet) {
+    flex-direction: row;
+    gap: 2.5rem; // 40
+    margin-inline: auto;
+  }
+}
+
+.site-nav__link {
+  display: block;
+  padding-block: var(--space-sm);
+  font-size: var(--fs-button);
+  line-height: var(--lh-button);
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-text-on-dark);
+  }
+
+  &:focus-visible {
+    outline-color: var(--color-white);
+  }
+
+  @media (min-width: $bp-tablet) {
+    padding-block: 0;
+  }
+}

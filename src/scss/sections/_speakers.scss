@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+// Speakers grid: 2 columns, 4 from desktop.
+.speakers {
+  --speakers-cols: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--speakers-cols), minmax(0, 1fr));
+  gap: var(--grid-gap);
+
+  @media (min-width: $bp-desktop) {
+    --speakers-cols: 4;
+  }
+}

@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+.eyebrow {
+  @include text-tag;
+  color: var(--color-text-soft);
+}

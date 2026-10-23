@@ -1,0 +1,58 @@
+
+@use '../abstracts' as *;
+
+.site-footer {
+  padding-block: 2.5rem; // 40
+  background: var(--color-navy-deep);
+  color: var(--color-text-on-dark);
+  font-size: 0.875rem;   // 14
+  line-height: 1.25rem;  // 20
+
+  @media (min-width: $bp-tablet) {
+    padding-block: var(--space-2xl); // 48
+  }
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+
+  @media (min-width: $bp-tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.site-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; // 12
+  font-weight: 500;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-white);
+    }
+
+    &:focus-visible {
+      outline-color: var(--color-white);
+    }
+  }
+
+  @media (min-width: $bp-tablet) {
+    flex-direction: row;
+    gap: var(--space-xl); // 32
+  }
+}
+
+.site-footer__copy {
+  color: inherit; // overrides the base slate paragraph colour
+
+  small {
+    font-size: inherit; // <small> shrinks text by default; the frame keeps 14
+  }
+}

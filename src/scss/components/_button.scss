@@ -1,0 +1,68 @@
+
+// Button: one block. Modifiers only change the --btn-* variables.
+.button {
+  --btn-height: 3.25rem;  // 52 — minimum button height
+  --btn-pad-x: 1.75rem;   // 28 — left/right padding
+  --btn-bg: transparent;  // background color
+  --btn-color: inherit;   // text color
+  --btn-border: transparent; // border color
+
+  display: inline-flex;          // sits inline with text, lays out children in a row
+  align-items: center;           // centers content vertically
+  justify-content: center;       // centers content horizontally
+  min-height: var(--btn-height); // keeps a consistent height, grows if text wraps
+  padding-inline: var(--btn-pad-x); // left/right padding
+  border: 1.5px solid var(--btn-border); // always reserves border space so variants don't shift size
+  border-radius: var(--radius-pill); // fully rounded ends
+  background: var(--btn-bg);     // background color
+  color: var(--btn-color);       // text color
+  font-size: var(--fs-button);   // text size
+  line-height: var(--lh-button); // line spacing
+  font-weight: 600;              // semi-bold text
+  text-decoration: none;         // removes underline when used on <a>
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease; // smooth hover changes
+}
+
+.button--primary {
+  --btn-bg: var(--color-accent); // accent fill
+  --btn-color: var(--color-navy); // navy text
+
+  &:hover {
+    --btn-bg: var(--color-accent-hover); // slightly different accent on hover
+    transform: translateY(-0.125rem); // lift 2px on hover
+  }
+}
+
+.button--ghost {
+  --btn-color: var(--color-white);  // white text
+  --btn-border: var(--color-white); // white outline, no fill
+
+  &:hover {
+    --btn-bg: var(--color-white);   // fills white on hover
+    --btn-color: var(--color-navy); // text turns navy for contrast
+  }
+
+  &:focus-visible {
+    outline-color: var(--color-white); // navy ring is invisible on navy
+  }
+}
+
+.button--sm {
+  --btn-height: 2.75rem;   // 44 — smaller height
+  --btn-pad-x: 1.375rem;   // 22 — tighter padding
+}
+
+.button--block {
+  width: 100%; // stretches to fill its container
+}
+
+// Respect users who turn off animations in their OS settings
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none; // no animated hover changes
+  }
+
+  .button--primary:hover {
+    transform: none; // no lift on hover
+  }
+}

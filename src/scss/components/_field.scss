@@ -1,0 +1,72 @@
+// One form field: label + control + optional error message.
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; // 8
+  min-width: 0; // fieldsets default to min-width: auto and can overflow a grid
+  padding: 0;
+  border: 0;    // removes the fieldset's default border
+}
+
+.field__label {
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 500;
+  color: var(--color-navy);
+}
+
+legend.field__label {
+  padding: 0;
+  margin-bottom: 0.75rem; // 12; a legend isn't a flex item, so gap doesn't apply
+}
+
+.field__input {
+  width: 100%;
+  min-height: 3.25rem; // 52
+  padding-inline: 1rem;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-size: 1rem;   // fixed 16: below this, iOS Safari zooms in on focus
+  line-height: 1.25; // 20 / 16
+
+  &::placeholder {
+    color: var(--color-text-soft);
+  }
+
+  &:focus-visible {
+    outline: 2px solid transparent; // stays visible in Windows high-contrast mode
+    border-color: var(--color-navy);
+    box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-error);
+  }
+}
+
+.field__error {
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  color: var(--color-error);
+}
+
+// Custom select arrow: the wrapper positions the chevron over the select.
+.field__select {
+  position: relative;
+
+  .field__input {
+    appearance: none;
+    padding-inline-end: 3rem; // room for the chevron
+  }
+}
+
+.field__chevron {
+  position: absolute;
+  inset-inline-end: 1rem;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--color-navy);
+  pointer-events: none; // clicks pass through to the select
+}

@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+// Section heading block: eyebrow, title and optional intro text.
+.section-head {
+  --section-head-space: var(--space-xl); // 32
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; // 12
+  margin-bottom: var(--section-head-space);
+
+  @media (min-width: $bp-tablet) {
+    --section-head-space: var(--space-2xl); // 48
+  }
+}
+
+// .section-head__text needs nothing beyond the base <p> styles.
